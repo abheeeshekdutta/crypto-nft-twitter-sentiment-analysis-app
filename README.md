@@ -1,2 +1,2 @@
-# Twitter Sentiment Analysis App for cryptocurrencies and NFTs
+# Twitter Sentiment Analysis App
 Streamlit-based twitter sentiment analysis dashboard built using Python
