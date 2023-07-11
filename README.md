@@ -15,6 +15,7 @@ The following tools were used to build the application
 
 # ⿸ Application architecture
 
+![Project Architecture](https://github.com/abheeeshekdutta/crypto-nft-twitter-sentiment-analysis-app/blob/main/assets/project_architecture.png)
 
 
 
