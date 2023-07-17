@@ -4,6 +4,7 @@ import torch
 from dotenv import load_dotenv, find_dotenv, dotenv_values
 import hopsworks
 import numpy as np
+import os
 
 
 def fetch_raw_data_from_hopsworks_fs(hopsworks_api_key: str) -> pd.DataFrame:
@@ -64,7 +65,8 @@ def push_predictions_fg(tweets_df_predictions: pd.DataFrame):
     Args:
         tweets_df (pd.Dataframe): Tweets dataframe that needs to be pushed to Hopsworks feature store
     """
-    hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    # hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    hopsworks_api_key = os.environ["HOPSWORKS_API_KEY"]
     project = hopsworks.login(api_key_value=hopsworks_api_key)
     fs = project.get_feature_store()
 
@@ -86,8 +88,9 @@ def push_predictions_fg(tweets_df_predictions: pd.DataFrame):
 if __name__ == "__main__":
     # Fetch variables for .env file
     print("Fetching API keys...")
-    env_vars = dotenv_values(find_dotenv())
-    hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    # env_vars = dotenv_values(find_dotenv())
+    # hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    hopsworks_api_key = os.environ["HOPSWORKS_API_KEY"]
 
     print("Fetching raw data...")
     df = fetch_raw_data_from_hopsworks_fs(hopsworks_api_key=hopsworks_api_key)
