@@ -40,4 +40,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Execute python scripts from bash script
-          run: ./scripts/run-feature-and-prediction-pipelines.sh
+        run: ./scripts/run-feature-and-prediction-pipelines.sh
