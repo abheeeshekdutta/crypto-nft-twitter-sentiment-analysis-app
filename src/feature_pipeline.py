@@ -101,6 +101,7 @@ if __name__ == "__main__":
     # X_RapidAPI_Key = env_vars["X_RapidAPI_Key"]
     # X_RapidAPI_Host = env_vars["X_RapidAPI_Host"]
 
+    url = os.environ["url"]
     X_RapidAPI_Key = os.environ["X_RapidAPI_Key"]
     X_RapidAPI_Host = os.environ["X_RapidAPI_Host"]
 
