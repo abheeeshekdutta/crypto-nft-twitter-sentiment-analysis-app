@@ -5,10 +5,8 @@ import torch
 import hopsworks
 from dotenv import load_dotenv, find_dotenv, dotenv_values
 
-st.write("testing")
 
-
-@st.cache_data
+@st.cache_data(show_spinner=False)
 def fetch_sentiment_data_from_hopsworks_fs() -> pd.DataFrame:
     """
     This function fetches the sentiment data for our tweets from the Hopsworks feature store
@@ -48,8 +46,20 @@ def fetch_sentiment_data_from_hopsworks_fs() -> pd.DataFrame:
     return df
 
 
-x = st.slider("x")  # 👈 this is a widget
-st.write(x, "squared is", x * x)
+with st.spinner("Fetching sample prediction data from Hopsworks..."):
+    df = fetch_sentiment_data_from_hopsworks_fs()
+df["tweet_id"] = df["tweet_id"].astype("str")
+df = df.sample(15)[
+    [
+        "tweet_text",
+        "sentiment",
+        "sentiment_score",
+        "tweet_date",
+        "tweet_id",
+        "tweet_username",
+    ]
+]
 
-df = fetch_sentiment_data_from_hopsworks_fs()
-st.dataframe(df.sample(5), hide_index=True)
+st.header("Sample Prediction Data")
+st.info("Double click on tweet_text cell to expand the text")
+st.dataframe(df, hide_index=True, height=575)
