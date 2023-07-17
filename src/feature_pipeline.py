@@ -6,6 +6,7 @@ import json
 from dotenv import load_dotenv, find_dotenv, dotenv_values
 import hopsworks
 import numpy as np
+import os
 
 
 def get_response(url: str, querystring: dict, headers: dict) -> dict:
@@ -77,7 +78,8 @@ def push_to_hopsworks_fs(tweets_df: pd.DataFrame):
     Args:
         tweets_df (pd.Dataframe): Tweets dataframe that needs to be pushed to Hopsworks feature store
     """
-    hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    # hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    hopsworks_api_key = os.environ["HOPSWORKS_API_KEY"]
     project = hopsworks.login(api_key_value=hopsworks_api_key)
     fs = project.get_feature_store()
     tweets_raw_fg = fs.get_or_create_feature_group(
@@ -92,12 +94,15 @@ def push_to_hopsworks_fs(tweets_df: pd.DataFrame):
 if __name__ == "__main__":
     # Fetch variables for .env file
     print("Fetching API keys...")
-    env_vars = dotenv_values(find_dotenv())
+    # env_vars = dotenv_values(find_dotenv())
 
     # Set variables
-    url = env_vars["url"]
-    X_RapidAPI_Key = env_vars["X_RapidAPI_Key"]
-    X_RapidAPI_Host = env_vars["X_RapidAPI_Host"]
+    # url = env_vars["url"]
+    # X_RapidAPI_Key = env_vars["X_RapidAPI_Key"]
+    # X_RapidAPI_Host = env_vars["X_RapidAPI_Host"]
+
+    X_RapidAPI_Key = os.environ["X_RapidAPI_Key"]
+    X_RapidAPI_Host = os.environ["X_RapidAPI_Host"]
 
     headers = {"X-RapidAPI-Key": X_RapidAPI_Key, "X-RapidAPI-Host": X_RapidAPI_Host}
 

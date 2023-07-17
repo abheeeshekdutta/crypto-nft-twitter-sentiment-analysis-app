@@ -5,6 +5,12 @@ on:
 #  schedule:
 #    - cron: '11 11 * * *'
 
+env: 
+  HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+  X_RapidAPI_Key: ${{ secrets.X_RAPIDAPI_KEY }}
+  X_RapidAPI_Host: ${{ secrets.X_RAPIDAPI_HOST }}
+  url: ${{ secrets.URL }}
+
 jobs:
   test_schedule:
     runs-on: ubuntu-latest
@@ -33,21 +39,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      #- name: Install Jupyter
-      #  run: |
-      #    python -m pip install --upgrade pip
-      #    pip install jupyter
-
-      #- name: Check available kernels
-       # run: jupyter kernelspec list
-      
-      #- name: Install or reconfigure python3 kernel
-       # run: python -m ipykernel install --user --name python3 --display-name "Python 3"
-          
       - name: Execute python scripts from bash script
-        env: 
-          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-          X_RapidAPI_Key: ${{ secrets.X_RapidAPI_Key }}
-          X_RapidAPI_Host: ${{ secrets.X_RapidAPI_Host }}
-          url: ${{ secrets.url }}
-        run: ./scripts/run-feature-and-prediction-pipelines.sh
+          run: ./scripts/run-feature-and-prediction-pipelines.sh
