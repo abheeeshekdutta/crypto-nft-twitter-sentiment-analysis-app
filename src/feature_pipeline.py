@@ -96,8 +96,8 @@ if __name__ == "__main__":
 
     # Set variables
     url = env_vars["url"]
-    X_RapidAPI_Key = env_vars["X-RapidAPI-Key"]
-    X_RapidAPI_Host = env_vars["X-RapidAPI-Host"]
+    X_RapidAPI_Key = env_vars["X_RapidAPI_Key"]
+    X_RapidAPI_Host = env_vars["X_RapidAPI_Host"]
 
     headers = {"X-RapidAPI-Key": X_RapidAPI_Key, "X-RapidAPI-Host": X_RapidAPI_Host}
 
@@ -124,4 +124,4 @@ if __name__ == "__main__":
     push_to_hopsworks_fs(tweets_df)
 
     print("Saving data locally as a parquet file...")
-    tweets_df.to_parquet("data/tweets_df.parquet")
+    tweets_df.to_parquet("../data/tweets_df.parquet")
