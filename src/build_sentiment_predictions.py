@@ -49,10 +49,10 @@ def extract_sentiment(df: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: _description_
     """
     df["sentiment"] = df["tweet_text"].apply(
-        lambda x: sentiment_analysis(x)[0]["label"]
+        lambda x: sentiment_analysis(x, truncation=True)[0]["label"]
     )
     df["sentiment_score"] = df["tweet_text"].apply(
-        lambda x: sentiment_analysis(x)[0]["score"]
+        lambda x: sentiment_analysis(x, truncation=True)[0]["score"]
     )
 
     return df
