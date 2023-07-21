@@ -2,6 +2,10 @@
 
 The objective of this application is to display an interactive dashboard which demonstrates the trend of sentiments around cryptocurrency and NFT tweets on Twitter.
 
+# 🔗 Application link
+
+https://crypto-nft-twitter-sentiment-analysis-app.streamlit.app
+
 # 🛠️ Tools used
 
 The following tools were used to build the application

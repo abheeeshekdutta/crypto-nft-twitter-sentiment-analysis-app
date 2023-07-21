@@ -31,7 +31,7 @@ st.markdown(
     body="""
 # ？How it works
 
-1. Data is fetched from the twitter API hosted on RapidAPI - the tweet pull schedule is everyday at 10:00AM Irish Standard Time(IST)
+1. Data is fetched from the twitter API hosted on RapidAPI - the tweet pull schedule is everyday and every four hours starting at midnight Irish Standard Time(IST)
 
 2. The raw tweet data from the above step is pushed to a Hopsworks Feature Store
 
