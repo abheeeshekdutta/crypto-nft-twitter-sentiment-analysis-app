@@ -4,6 +4,7 @@ import pandas as pd
 import torch
 import hopsworks
 from dotenv import load_dotenv, find_dotenv, dotenv_values
+import os
 
 
 @st.cache_data(show_spinner=False)
@@ -17,8 +18,9 @@ def fetch_sentiment_data_from_hopsworks_fs() -> pd.DataFrame:
 
     # Fetch variables for .env file
     print("Fetching API keys...")
-    env_vars = dotenv_values(find_dotenv())
-    hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    # env_vars = dotenv_values(find_dotenv())
+    # hopsworks_api_key = env_vars["HOPSWORKS_API_KEY"]
+    hopsworks_api_key = os.environ["HOPSWORKS_API_KEY"]
 
     print("Fetching predictions data...")
 
