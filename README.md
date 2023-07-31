@@ -21,6 +21,15 @@ The following tools were used to build the application
 
 ![Project Architecture](https://github.com/abheeeshekdutta/crypto-nft-twitter-sentiment-analysis-app/blob/main/assets/project_architecture.png)
 
+# ⿸ Screenshots
+
+![Sample predictions](assets/sample_predictions.png)
+
+![Trend Analysis - Previous week](assets/trend_analysis_last_week.png)
+
+![Trend Analysis - Custom dates](assets/trend_analysis_custom.png)
+
+![Sentiment distribution and word cloud](assets/sentiment_distri_and_wc.png)
 
 # ？How it works
 
