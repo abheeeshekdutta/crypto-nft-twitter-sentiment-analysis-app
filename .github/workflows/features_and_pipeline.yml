@@ -3,7 +3,7 @@ name: crypto-nft-tweets-feature-and-prediction-pipelines
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 10,22 * * *'
 
 env: 
   HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
